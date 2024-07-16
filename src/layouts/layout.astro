@@ -1,0 +1,35 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <BaseHead title="¡Qué lindo Méxcio!" />
+  </head>
+  <body>
+    <SiteHeader />
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  @apply bg-black h-full overflow-x-hidden;
+  @apply text-white
+}
+
+#__next{
+  @apply h-full;
+}
+
+html{
+  @apply h-full;
+}
+</style>

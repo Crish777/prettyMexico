@@ -1,0 +1,15 @@
+---
+
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+}
+
+const {title, description = 'Que lindo México', keywords='Tours, Tours por méxico, ciudad de méxico, paseo'} = Astro.props;
+
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
