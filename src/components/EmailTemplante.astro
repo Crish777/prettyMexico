@@ -1,0 +1,27 @@
+---
+interface Props {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  message: string;
+}
+
+const {firstName, lastName, email, phone, message} = Astro.props;
+---
+
+
+<div>
+  <h1>Hey! {firstName} {lastName ?? ''} está interesado</h1>
+  <p>Aquí sus datos</p>
+  <ul>
+    <li>Nombre: {firstName}</li>
+    <li>Apellido: {lastName}</li>
+    <li>E-mail: {email}</li>
+    <li>Teléfono: {phone}</li>
+    {message ? <li>Nombre: {message}</li>: ''}    
+  </ul>
+
+  <p>¡Vamos mi cuate no lo dejes escapar!!!</p>
+
+</div>

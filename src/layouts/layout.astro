@@ -1,17 +1,22 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import Contact from "../components/Contact.astro";
 import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 ---
 
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
     <BaseHead title="¡Qué lindo Méxcio!" />
   </head>
   <body>
     <SiteHeader />
     <slot />
+    <Contact />
+    <SiteFooter />
   </body>
 </html>
 
@@ -31,5 +36,6 @@ body{
 
 html{
   @apply h-full;
+  scroll-behavior: smooth;
 }
 </style>

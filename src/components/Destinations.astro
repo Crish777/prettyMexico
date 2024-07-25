@@ -1,0 +1,90 @@
+---
+
+const destinations = [
+  {
+    id: 0,
+    name: 'México',
+    description: 'Sumérgete en la diversidad cultural y natural de México, donde antiguas civilizaciones se entrelazan con paisajes impresionantes. Desde ruinas ancestrales hasta costas bañadas por dos océanos, cada rincón de México ofrece una experiencia única que combina historia, arte y belleza natural.',
+    imageSrc: '/images/mexico-card.jpg',
+    imageAlt: '',
+    href: '/pdfs/mexico.pdf'
+  },
+  {
+    id: 1,
+    name: 'Colombia',
+    description: 'Descubre la rica historia y la biodiversidad única de Colombia. Desde selvas tropicales hasta montañas imponentes, este país te invita a explorar paisajes variados y vibrantes culturas locales. Cada paso en Colombia revela una nueva faceta de su encanto natural y cultural.',
+    imageSrc: '/images/colombia-card.jpg',
+    imageAlt: '',
+    href: '/pdfs/colombia.pdf'
+  },
+  {
+    id: 2,
+    name: 'Panamá',
+    description: 'En Panamá, la belleza natural se encuentra con una historia fascinante. Desde su icónico canal hasta parques nacionales llenos de vida silvestre, Panamá ofrece una mezcla perfecta de aventura y tranquilidad. Explora sus playas, selvas y cielos llenos de aves exóticas.',
+    imageSrc: '/images/panama-card.jpg',
+    imageAlt: '',
+    href: '/pdfs/panama.pdf'
+  },
+  {
+    id: 3,
+    name: 'Perú',
+    description: 'Perú te espera con una rica herencia histórica y paisajes impresionantes. Desde antiguas ruinas hasta vastas extensiones de selva amazónica, cada parte de Perú cuenta una historia única de civilizaciones pasadas y una biodiversidad asombrosa.',
+    imageSrc: '/images/peru-card.jpg',
+    imageAlt: '',
+    href: '/pdfs/peru.pdf'
+  },
+  {
+    id: 4,
+    name: 'París',
+    description: 'Imagina caminar por calles empedradas bañadas por la luz dorada del atardecer, con la Torre Eiffel recortándose majestuosamente contra el cielo. En París, cada rincón cuenta una historia, cada aroma evoca una memoria.',
+    imageSrc: '/images/paris-h.jpg',
+    imageAlt: '',
+    href: '/pdfs/paris.pdf'
+  },
+]
+
+---
+
+<section class='w-full py-10'>
+  <div class='container max-w-[1600px] w-11/12 mx-auto'>
+    <h2 class='font-bold text-5xl mb-4 text-center'>Lugares Fascinantes</h2>
+    <h3 class='md:max-w-[70%] lg:max-w-[50%] text-center mx-auto'>
+      Sumérgete en la riqueza cultural de México, Colombia, Panamá y Perú con nuestras experiencias memorables.
+    </h3>
+
+
+    <div class="container-destinations w-full">
+      <div class="w-full">
+        <div class="mx-auto w-full px-4 py-16 sm:px-6 sm:py-24  ">
+  
+          <div class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-2 xl:gap-x-8">
+            {destinations.map((destination) => (
+              <div class="group relative">
+                <div class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-96 transition">
+                  <img
+                    alt={destination.imageAlt}
+                    src={destination.imageSrc}
+                    class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                  />
+                </div>
+                <div class="mt-4 flex justify-between">
+                  <div>
+                    <h3 class="text-3xl font-bold">
+                      <a href={destination.href} target="_blank">
+                        <span aria-hidden="true" class="absolute inset-0" />
+                        {destination.name}
+                      </a>
+                    </h3>
+                    <p class="mt-1 text-sm ">{destination.description}</p>
+                  </div>
+                  {/* <p class="text-sm font-medium text-gray-900">150 mxn</p> */}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

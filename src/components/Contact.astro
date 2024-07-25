@@ -1,0 +1,244 @@
+---
+
+---
+
+<div
+  id="contact"
+  class="relative flex justify-center items-center w-screen bg-[url('/images/mexico-contact.jpg')] bg-fixed bg-no-repeat bg-cover before:content-[''] before:w-full before:h-full before:absolute before:from-black before:via-transparent before:to-black before:bg-gradient-to-b">
+  <!-- COMPONENT CODE -->
+  <div class='container mx-auto my-4 px-4 lg:px-20 relative'>
+    <form
+      id='siteContactForm'
+      class='w-full lg:p-8 p-4 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl bg-[#00000033]'>
+      <div class='flex'>
+        <h1 class='font-bold text-5xl'>Envíanos <br />tu mensaje</h1>
+      </div>
+      <div class='grid grid-cols-1 gap-5 md:grid-cols-2 mt-5'>
+        <input
+          id='inputName'
+          required
+          class='w-full bg-transparent border-white border-2 placeholder:text-white mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline'
+          type='text'
+          placeholder='Nombre*'
+        />
+        <input
+          id='inputLastName'
+          required
+          class='w-full bg-transparent border-white border-2 placeholder:text-white mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline'
+          type='text'
+          placeholder='Apellido*'
+        />
+        <input
+          id='inputEmail'
+          required
+          class='w-full bg-transparent border-white border-2 placeholder:text-white mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline'
+          type='email'
+          placeholder='Email*'
+        />
+        <input
+          id='inputTel'
+          required
+          class='w-full bg-transparent border-white border-2 placeholder:text-white mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline'
+          type='number'
+          placeholder='Teléfono*'
+        />
+      </div>
+      <div class='my-4'>
+        <textarea
+          id='inputMessage'
+          placeholder='Mensaje'
+          class='w-full h-32 bg-transparent border-white border-2 placeholder:text-white mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline'
+        ></textarea>
+      </div>
+      <div class='my-2 w-full lg:w-1/4'>
+        <button
+          class='bg-white uppercase rounded-sm cursor-pointer py-2 px-6 text-black font-bold transition hover:scale-105'>
+          Enviar
+        </button>
+      </div>
+    </form>
+
+    <div
+      class='w-full lg:-mt-96 lg:w-2/6 px-4 lg:px-8 py-4 lg:py-12 ml-auto bg-white rounded-2xl'>
+      <div class='flex flex-col text-black'>
+        <h1 class='font-bold text-4xl my-4'>
+          Descubre Experiencias Inolvidables
+        </h1>
+        <p class='text-zinc-700'>
+          ¿Listo para explorar nuevos horizontes? Completa el formulario y
+          déjanos mostrarte cómo hacer de tu viaje una aventura memorable.
+        </p>
+
+        <div class='flex my-4'>
+          <div class='flex flex-col'>
+            <h2 class='text-2xl mb-1'>
+              Personalización y Calidad Garantizadas
+            </h2>
+            <p class='text-zinc-600'>
+              Nuestro compromiso es ofrecerte la mejor experiencia posible.
+              Desde la planificación hasta la ejecución, estamos aquí para
+              asegurarnos de que cada detalle de tu viaje sea perfecto.
+            </p>
+          </div>
+        </div>
+
+        <!-- <div class="flex my-4 w-2/3 lg:w-1/2">
+            
+            <div class="flex flex-col">
+              <h2 class="text-2xl">Call Us</h2>
+              <p class="text-gray-400"> xxx-xxx-xxx</p>
+              <p class="text-gray-400"> xxx-xxx-xxx</p>
+              <p class="text-gray-400"> xxx-xxx-xxx</p>
+              <p class="text-gray-400"> xxx-xxx-xxx</p>
+            </div>
+          </div> -->
+
+        <!-- <div class="flex my-4 w-2/3 lg:w-1/2">
+            <a href="https://www.facebook.com/ENLIGHTENEERING/" target="_blank" rel="noreferrer" class="rounded-full bg-white h-8 w-8 inline-block mx-1 text-center pt-1">
+              <i class="fab fa-facebook-f text-blue-900" />
+            </a>
+            <a href="https://www.linkedin.com/company/enlighteneering-inc-" target="_blank" rel="noreferrer" class="rounded-full bg-white h-8 w-8 inline-block mx-1 text-center pt-1">
+              <i class="fab fa-linkedin-in text-blue-900" />
+            </a>
+          </div> -->
+      </div>
+    </div>
+  </div>
+  <!-- COMPONENT CODE -->
+</div>
+
+<script>
+  import DOMPurify from "dompurify";
+  import Toastify from "toastify-js";
+  import "toastify-js/src/toastify.css";
+
+  const siteContactForm = document.getElementById("siteContactForm");
+  const inputName = document.getElementById("inputName") as HTMLInputElement;
+  const inputLastName = document.getElementById(
+    "inputLastName"
+  ) as HTMLInputElement;
+  const inputEmail = document.getElementById("inputEmail") as HTMLInputElement;
+  const inputTel = document.getElementById("inputTel") as HTMLInputElement;
+  const inputMessagge = document.getElementById(
+    "inputMessage"
+  ) as HTMLTextAreaElement;
+
+  const validateInfo = () => {
+    let valuesFlag = false;
+    if (inputName?.value) {
+      valuesFlag = true;
+    }
+    if (inputLastName?.value) {
+      valuesFlag = true;
+    }
+    if (inputEmail?.value) {
+      valuesFlag = true;
+    }
+    if (inputTel?.value) {
+      valuesFlag = true;
+    }
+    if (inputMessagge?.value) {
+      valuesFlag = true;
+    }
+    return valuesFlag;
+  };
+  const restartIputs = () => {
+    inputName.value = "";
+
+    inputLastName.value = "";
+
+    inputEmail.value = "";
+
+    inputTel.value = "";
+
+    inputMessagge.value = "";
+  };
+
+  siteContactForm?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const isValid = validateInfo();
+
+    const sanitizeName = DOMPurify.sanitize(inputName.value);
+    const sanitizeLastName = DOMPurify.sanitize(inputLastName.value);
+    const sanitizeEmail = DOMPurify.sanitize(inputEmail.value);
+    const sanitizeTel = DOMPurify.sanitize(inputTel.value);
+    const sanitizeMessage = DOMPurify.sanitize(inputMessagge.value);
+
+    if (!isValid) {
+      return;
+    }
+
+    const data = {
+      from: import.meta.env.PUBLIC_SEND_EMAIL_FROM,
+      to: import.meta.env.PUBLIC_SEND_EMAIL_TO,
+      subject: "Cliente potencial",
+      html: `
+      <div>
+        <h1>Hey! ${sanitizeName} ${sanitizeLastName ?? ""} está interesado</h1>
+        <p>Aquí sus datos</p>
+        <ul>
+          <li>Nombre: ${sanitizeName}</li>
+          <li>Apellido: ${sanitizeLastName}</li>
+          <li>E-mail: ${sanitizeEmail}</li>
+          <li>Teléfono: ${sanitizeTel}</li>
+          ${sanitizeMessage ? `<li>Mensaje: ${sanitizeMessage}</li>` : ""}    
+        </ul>
+
+        <p>¡Vamos mi cuate no lo dejes escapar!!!</p>
+
+      </div>`,
+      text: `Hey! ${sanitizeName} ${sanitizeLastName ?? ""} está interesado. Aquí sus datos, Nombre: ${sanitizeName}, Apellido: ${sanitizeLastName}, E-mail: ${sanitizeEmail}, Teléfono: ${sanitizeTel}, Mensaje: ${sanitizeMessage}`,
+    };
+
+    try {
+      const response = await fetch("/api/sendEmail.json", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        // Manejar respuesta exitosa
+        Toastify({
+          text: "Tu información ha sido enviada con éxito, pronto nuestros asesores estarán en contacto contigo.",
+          duration: 5000,
+          newWindow: true,
+          close: true,
+          gravity: "bottom", // `top` or `bottom`
+          position: "center", // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          className: "rounded-3xl p-4 pl-12 font-bold",
+          style: {
+            background: "#05d400",
+            color: "#fff",
+          },
+          onClick: function () {}, // Callback after click
+        }).showToast();
+        restartIputs();
+        console.log("Data sent successfully");
+      } else {
+        // Manejar errores
+        console.error("Error sending data");
+      }
+    } catch (error) {
+      Toastify({
+        text: "Ooops! revisa tus datos por favor.",
+        duration: 5000,
+        newWindow: true,
+        close: true,
+        gravity: "bottom", // `top` or `bottom`
+        position: "center", // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        className: "rounded-3xl p-4 pl-12 font-bold",
+        style: {
+          background: "#d90000",
+          color: "#fff",
+        },
+        onClick: function () {}, // Callback after click
+      }).showToast();
+      console.error("Network error:", error);
+    }
+  });
+</script>
